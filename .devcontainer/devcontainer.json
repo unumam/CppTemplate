@@ -1,0 +1,27 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.134.0/containers/cpp
+{
+	"name": "C++",
+	"build": {
+		"dockerfile": "Dockerfile",
+	},
+	"runArgs": [
+		"--name",
+		"CppTemplate-Dev"
+	],
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-vscode.cpptools",
+		"ms-vscode.cmake-tools",
+		"ms-python.python",
+		"ms-python.vscode-pylance"
+	],
+	// Mount the dataset folders: 
+	// https://code.visualstudio.com/docs/remote/containers-advanced#_adding-another-local-file-mount
+	"mounts": [
+		"source=${localEnv:HOME}/Datasets,target=/Datasets,type=bind,consistency=cached"
+	],
+	"postCreateCommand": "gcc -v",
+	// Comment out this line to run as root instead.
+	"remoteUser": "vscode"
+}

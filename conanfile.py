@@ -10,11 +10,11 @@ class CppTemplateConan(ConanFile):
     # conan remote add conan-center https://api.bintray.com/conan/conan/conan-center
 
     name = "CppTemplate"
-    version = "0.4.0"
+    version = "0.0.1"
     url = "https://github.com/UnumAM/CppTemplate"
 
     settings = "os", "compiler", "build_type", "arch"
-    generators = "cmake", "cmake_paths"
+    generators = "cmake", "cmake_paths", "cmake_find_package"
     default_options = {}
 
     def build(self):

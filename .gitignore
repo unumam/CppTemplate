@@ -1,3 +1,11 @@
+# Build folders and temporary files
+build_debug/*
+CMakeFiles
+Makefile
+CMakeCache.txt
+cmake_install.cmake
+.DS_Store
+
 # Prerequisites
 *.d
 
@@ -30,10 +38,3 @@
 *.exe
 *.out
 *.app
-
-# Build folders and temporary files
-build_debug/*
-CMakeFiles
-Makefile
-CMakeCache.txt
-cmake_install.cmake
