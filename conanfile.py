@@ -17,6 +17,12 @@ class CppTemplateConan(ConanFile):
     generators = "cmake", "cmake_paths", "cmake_find_package"
     default_options = {}
 
+    def configure(self):
+        # To avoid linking problems - link to C++11 ABI
+        # https://github.com/conan-io/conan/issues/2115#issuecomment-353020236
+        if self.settings.compiler.libcxx == "libstdc++":
+            raise Exception("This package is only compatible with libstdc++11")
+        
     def build(self):
 
         # It's recommended to use CMake.
