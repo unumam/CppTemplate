@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.7.2)
 project(CppTemplate)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+message("CMAKE_BINARY_DIR is ${CMAKE_BINARY_DIR}")
+message("CMAKE_CURRENT_BINARY_DIR is ${CMAKE_CURRENT_BINARY_DIR}")
+message("CMAKE_SOURCE_DIR is ${CMAKE_SOURCE_DIR}")
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE RELEASE)
@@ -31,9 +34,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -funsafe-math-optimizati
 # find_package(benchmark REQUIRED)
 # find_package(fmt REQUIRED)
 # target_link_libraries(main_app benchmark::benchmark fmt::fmt)
-message("CMAKE_BINARY_DIR is ${CMAKE_BINARY_DIR}")
-message("CMAKE_CURRENT_BINARY_DIR is ${CMAKE_CURRENT_BINARY_DIR}")
-include(${CMAKE_BINARY_DIR}/cmake/conanbuildinfo.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/conanbuildinfo.cmake)
 conan_basic_setup()
 
 add_executable(main_test main_test.cxx)
