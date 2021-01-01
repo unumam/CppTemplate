@@ -3,12 +3,29 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "env:${CONAN_INCLUDE_DIRS}",
+                // Default headers installation paths to allow IntelliSense browsing:
+                // https://stackoverflow.com/questions/7834152/what-is-default-path-for-header-file-included-in-c-program
+                "/usr/local/include",
+                "/usr/include"
             ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**",
+                    "env:${CONAN_INCLUDE_DIRS}",
+                    // Default headers installation paths to allow IntelliSense browsing:
+                    // https://stackoverflow.com/questions/7834152/what-is-default-path-for-header-file-included-in-c-program
+                    "/usr/local/include",
+                    "/usr/include"
+                ]
+            },
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "gnu17",
             "cppStandard": "gnu++20",
+            // Suppported variants:
+            // https://github.com/microsoft/vscode-cpptools/issues/2312#issue-343727832
             "intelliSenseMode": "gcc-x64"
         }
     ],
