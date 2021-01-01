@@ -33,8 +33,11 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -funsafe-math-optimizati
 # target_link_libraries(main_app benchmark::benchmark fmt::fmt)
 message("CMAKE_BINARY_DIR is ${CMAKE_BINARY_DIR}")
 message("CMAKE_CURRENT_BINARY_DIR is ${CMAKE_CURRENT_BINARY_DIR}")
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+include(${CMAKE_BINARY_DIR}/cmake/conanbuildinfo.cmake)
 conan_basic_setup()
 
-add_executable(main_app main.cxx)
-target_link_libraries(main_app ${CONAN_LIBS})
+add_executable(main_test main_test.cxx)
+target_link_libraries(main_test ${CONAN_LIBS})
+
+add_executable(main_bench main_bench.cxx)
+target_link_libraries(main_bench ${CONAN_LIBS})

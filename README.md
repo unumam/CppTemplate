@@ -1,6 +1,15 @@
 # A Template for C++ Unum Sub-Projects
 
-Simply fork this repo in case you want to write a small C++ library.
+Simply fork this repo in case you want to write a small C++ library. 
+Put your code in the `main.hpp`, the tests into `main_test.cxx` and banchmark into `main_bench.cxx`.
+To run all:
+
+```sh
+./scripts/install_deps.sh
+./scripts/build_release.sh
+./bin/main_test
+./bin/main_bench
+```
 
 ## Style Guidelines
 
@@ -48,9 +57,10 @@ Simply fork this repo in case you want to write a small C++ library.
 ### Compilation
 
 * Root directory contains of each repository:
-  	* `CMakeLists.txt`
+  	* `CMakeLists.txt` for cross-platform compilation.
   	* `conanfile.py` for dependencies management.
-  	* `.vscode` (with launch options and compilations tasks).
-  	* `build/` for release builds only, or a combo of `build_debug/` and `build_release/`.
-  	* `python/` for bindings.
+  	* `.vscode/` with launch options and compilations tasks.
+	* `.devcontainer/` with a `Dockerfile`, that installs the right version of Linux and GCC with C++20 support.
+  	* `python/` for `PyBind11` bindings.
+	* `graphviz/` that will contain the `.dot` dependency graphs after compilation.
 * Don’t hard-code the compiler path in CMake.
