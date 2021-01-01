@@ -8,6 +8,11 @@
 	"runArgs": [
 		"--name",
 		"CppTemplate-Dev"
+		// Automatically delete the container after it exits.
+		// https://docs.docker.com/engine/reference/commandline/run/
+		// "--rm",
+		// Attach all the GPUs, if they exist on the current system.
+		// "--gpus=all"
 	],
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [

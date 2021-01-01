@@ -1,10 +1,15 @@
 # Build folders and temporary files
-build_debug/*
+.DS_Store
+bin/
 CMakeFiles
 Makefile
 CMakeCache.txt
-cmake_install.cmake
-.DS_Store
+*.cmake
+cmake/ 
+
+# Dependency graphs
+*.dot.* 
+*.dot
 
 # Prerequisites
 *.d
