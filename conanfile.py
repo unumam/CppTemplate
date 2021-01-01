@@ -20,6 +20,7 @@ class CppTemplateConan(ConanFile):
     def configure(self):
         # To avoid linking problems - link to C++11 ABI
         # https://github.com/conan-io/conan/issues/2115#issuecomment-353020236
+        # https://docs.conan.io/en/latest/howtos/manage_gcc_abi.html
         if self.settings.compiler.libcxx == "libstdc++":
             raise Exception("This package is only compatible with libstdc++11")
         

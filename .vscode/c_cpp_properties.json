@@ -24,9 +24,10 @@
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "gnu17",
             "cppStandard": "gnu++20",
-            // Suppported variants:
+            // Supported variants:
             // https://github.com/microsoft/vscode-cpptools/issues/2312#issue-343727832
-            "intelliSenseMode": "gcc-x64"
+            "intelliSenseMode": "gcc-x64",
+            "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
     "version": 4
