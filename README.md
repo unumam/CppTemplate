@@ -1,14 +1,22 @@
 # A Template for C++ Unum Sub-Projects
 
 Simply fork this repo in case you want to write a small C++ library. 
+We recommend using GCC 10 with C++ 20 support and good error messages.
+
+> This repo comes with [`.devcontainer`](.devcontainer/devcontainer.json) specification for VSCode.
+> When launching VSCode, you can ["Reopen in Container"](https://code.visualstudio.com/docs/remote/containers).
+> It will fetch our pre-configured Docker image with the right libraries and compilers from [our Docker Hub](https://hub.docker.com/r/unum/devcontainers).
+> The environment also contains the [GDB Debugger](https://www.gnu.org/software/gdb/).
+> The [`tasks.json`](.vscode/tasks.json) adds UI buttons to run both [build_debug](scripts/build_debug.sh) and [build_release](scripts/build_release.sh).
+
 Put your code in the `main.hpp`, the tests into `main_test.cxx` and banchmark into `main_bench.cxx`.
 To run all:
 
 ```sh
-./scripts/install_deps.sh
-./scripts/build_release.sh
-./bin/main_test
-./bin/main_bench
+./scripts/install_deps.sh \
+	&& ./scripts/build_release.sh \
+	&& ./bin/main_test \
+	&& ./bin/main_bench
 ```
 
 ## Style Guidelines
