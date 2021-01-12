@@ -1,31 +1,40 @@
 // For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.134.0/containers/cpp
+// https://code.visualstudio.com/docs/remote/containers#_create-a-devcontainerjson-file
 {
 	"name": "C++",
-	"build": {
-		"dockerfile": "Dockerfile",
-	},
+	// Instead of building a custom image on every run, 
+	// use the one we have hosted on the Docker Hub
+	// "build": { "dockerfile": "Dockerfile", },
+	"image": "unum/devcontainers:cpp20",
 	"runArgs": [
-		"--name",
-		"CppTemplate-Dev"
-		// Automatically delete the container after it exits.
 		// https://docs.docker.com/engine/reference/commandline/run/
-		// "--rm",
+		"--name=CppTemplate-Dev",
+		"--kernel-memory=8g",
+		"--memory=8g",
+		"--memory-swap=-1",
 		// Attach all the GPUs, if they exist on the current system.
-		// "--gpus=all"
+		// "--gpus=all",
+		// Automatically delete the container after it exits.
+		// "--rm",
+		"--cpus=4"
 	],
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-vscode.cpptools",
 		"ms-vscode.cmake-tools",
 		"ms-python.python",
-		"ms-python.vscode-pylance"
+		"ms-python.vscode-pylance",
+		"ms-vscode.cpptools-extension-pack",
+		"foxundermoon.shell-format"
 	],
 	// Mount the dataset folders: 
 	// https://code.visualstudio.com/docs/remote/containers-advanced#_adding-another-local-file-mount
-	"mounts": [
-		"source=${localEnv:HOME}/Datasets,target=/Datasets,type=bind,consistency=cached"
-	],
+	// Absolute paths are required and this won't work: "${containerEnv:HOME}/Datasets"
+	"mounts": [],
+	// For benchmarking define the paths
+	// https://code.visualstudio.com/docs/remote/containers-advanced#_option-1-add-individual-variables
+	"remoteEnv": {},
 	"postCreateCommand": "gcc -v",
 	// Comment out this line to run as root instead.
 	"remoteUser": "vscode"
