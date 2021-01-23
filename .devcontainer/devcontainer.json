@@ -26,6 +26,7 @@
 		"ms-python.python",
 		"ms-python.vscode-pylance",
 		"ms-vscode.cpptools-extension-pack",
+		"shd101wyy.markdown-preview-enhanced",
 		"foxundermoon.shell-format"
 	],
 	// Mount the dataset folders: 
