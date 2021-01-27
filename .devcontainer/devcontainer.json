@@ -6,7 +6,7 @@
 	// Instead of building a custom image on every run, 
 	// use the one we have hosted on the Docker Hub
 	// "build": { "dockerfile": "Dockerfile", },
-	"image": "docker.pkg.github.com/unumam/docker/vscode-cpp20:latest",
+	"image": "ghcr.io/unumam/vscode-cpp20",
 	"runArgs": [
 		// https://docs.docker.com/engine/reference/commandline/run/
 		"--name=CppTemplate-Dev",
