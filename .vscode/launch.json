@@ -1,51 +1,46 @@
 {
-    "version": "0.2.0",
-    "configurations": [
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C++: Test",
+      // Linux supports only GDB.
+      // MacOS: LLDB or GDB.
+      // Windows: VS Windows Debugger or GDB (via Cygwin or MinGW).
+      // https://code.visualstudio.com/docs/cpp/cpp-debug
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceRoot}/bin/main_test",
+      "args": ["--gtest_break_on_failure"],
+      // https://github.com/microsoft/vscode-cpptools/issues/3829
+      // "miDebuggerPath": "/Applications/Xcode.app/Contents/Developer/usr/bin/gdb-mi",
+      // "miDebuggerPath": "/Library/Developer/CommandLineTools/usr/bin/gdb-mi",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build Debug",
+      "setupCommands": [
         {
-            "name": "C++: Test",
-            // Linux supports only GDB.
-            // MacOS: LLDB or GDB.
-            // Windows: VS Windows Debugger or GDB (via Cygwin or MinGW).
-            // https://code.visualstudio.com/docs/cpp/cpp-debug
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceRoot}/bin/main_test",
-            "args": [
-                "--gtest_break_on_failure"
-            ],
-            // https://github.com/microsoft/vscode-cpptools/issues/3829
-            // "miDebuggerPath": "/Applications/Xcode.app/Contents/Developer/usr/bin/gdb-mi",
-            // "miDebuggerPath": "/Library/Developer/CommandLineTools/usr/bin/gdb-mi",
-            "cwd": "${workspaceFolder}",
-            "preLaunchTask": "Build Debug",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-        },
-        {
-            "name": "C++: Benchmark",
-            "type": "cppdbg",
-            "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb",
-            "request": "launch",
-            "program": "${workspaceRoot}/bin/main_bench",
-            "args": [
-                "--benchmark_format=console",
-                "--benchmark_out=stats/tmp.json"
-            ],
-            "cwd": "${workspaceFolder}",
-            "preLaunchTask": "Build Debug",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
         }
-    ]
+      ]
+    },
+    {
+      "name": "C++: Benchmark",
+      "type": "cppdbg",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "request": "launch",
+      "program": "${workspaceRoot}/bin/main_bench",
+      "args": ["--benchmark_format=console", "--benchmark_out=main_bench.json"],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build Debug",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
 }
