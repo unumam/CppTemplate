@@ -1,15 +1,17 @@
 # Build folders and temporary files
+build_debug/
+build_release/
 .DS_Store
 bin/
 CMakeFiles
 Makefile
 CMakeCache.txt
 *.cmake
-cmake/ 
+cmake/
 *.ninja
 
 # Dependency graphs
-*.dot.* 
+*.dot.*
 *.dot
 
 # Prerequisites

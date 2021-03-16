@@ -8,7 +8,7 @@ if test -f "conda.yml"; then
     # Activate the Conda environment:
     # https://docs.conda.io/projects/conda/en/latest/commands/update.html
     # conda env create -f conda.yml
-    conda env update -f conda.yml --prune && conda activate CuGEmb
+    conda env update -f conda.yml --prune && conda activate CppTemplate
 fi
 
 if test -f "requirements.txt"; then
